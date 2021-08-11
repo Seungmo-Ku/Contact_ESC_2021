@@ -71,12 +71,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
                 builder.setPositiveButton("문자 보내기", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        /*
                         Uri smsUri = Uri.parse("tel:"+ contact.getPhoneNumber());
                         Intent intent = new Intent(Intent.ACTION_VIEW, smsUri);
                         intent.putExtra("address", contact.getPhoneNumber());
                         intent.putExtra("sms_body", "");
                         intent.setType("vnd.android-dir/mms-sms");
-                        context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));*/
+                        Intent intent = new Intent( Intent.ACTION_SENDTO );
+                        intent.putExtra("sms_body", "");
+                        intent.setData( Uri.parse( "smsto:"+contact.getPhoneNumber() ) );
+                        context.startActivity(intent);
 
 
                     }

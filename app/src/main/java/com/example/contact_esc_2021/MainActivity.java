@@ -56,13 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 recyclerView.setAdapter(adapter);
 
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+              //  final Handler handler = new Handler();
+              //  handler.postDelayed(new Runnable() {
+             //       @Override
+             //       public void run() {
                         mSwipeRefreshLayout.setRefreshing(false);
-                    }
-                }, 500);
+              //      }
+              //  }, 500);
             }
         });
         PermissionListener permissionListener = new PermissionListener() {
